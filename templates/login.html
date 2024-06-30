@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Logowanie{% endblock %}
+{% block content %}
+<h2 class="page-title">Zaloguj się</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <label for="username">Nazwa użytkownika:</label>
+    {{ form.username }}
+
+    <label for="password">Hasło:</label>
+    {{ form.password }}
+
+    <label for="remember_me">{{ form.remember_me }} Zapamiętaj mnie</label>
+
+    {{ form.submit }}
+</form>
+{% endblock %}

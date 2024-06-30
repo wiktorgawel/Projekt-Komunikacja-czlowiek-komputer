@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Oferta{% endblock %}
+{% block content %}
+<h2 class="page-title">Nasza Oferta</h2>
+<div class="offer-container">
+    <div class="offer-item">
+        <img src="{{ url_for('static', filename='images/czyszczenie.jpg') }}" alt="Usługa 1">
+        <h3><i class="fas fa-car"></i> Czyszczenie tapicerki</h3>
+        <p>Profesjonalne czyszczenie tapicerki samochodowej, usuwa plamy i odświeża wnętrze Twojego auta.</p>
+    </div>
+    <div class="offer-item">
+        <img src="{{ url_for('static', filename='images/mycie.jpg') }}" alt="Usługa 2">
+        <h3><i class="fas fa-water"></i> Mycie zewnętrzne</h3>
+        <p>Dokładne mycie zewnętrzne, które sprawi, że Twój samochód będzie wyglądał jak nowy.</p>
+    </div>
+    <div class="offer-item">
+        <img src="{{ url_for('static', filename='images/polerowanie.jpg') }}" alt="Usługa 3">
+        <h3><i class="fas fa-spray-can"></i> Polerowanie lakieru</h3>
+        <p>Specjalistyczne polerowanie lakieru, które przywraca blask i głębię koloru.</p>
+    </div>
+    <div class="offer-item">
+        <img src="{{ url_for('static', filename='images/reflektor.jpg') }}" alt="Usługa 4">
+        <h3><i class="fas fa-lightbulb"></i> Regeneracja reflektorów</h3>
+        <p>Profesjonalna regeneracja reflektorów, która przywraca ich przejrzystość i jasność, poprawiając wygląd samochodu i bezpieczeństwo jazdy.</p>
+    </div>
+    <div class="offer-item">
+        <img src="{{ url_for('static', filename='images/detailingwnetrza.jpg') }}" alt="Usługa 5">
+        <h3><i class="fas fa-spray-can"></i> Detailing wnętrza</h3>
+        <p>Kompleksowe czyszczenie wnętrza pojazdu, które usuwa kurz, brud i nieprzyjemne zapachy.</p>
+    </div>
+    <div class="offer-item">
+        <img src="{{ url_for('static', filename='images/czyszczeniesilnika.jpg') }}" alt="Usługa 6">
+        <h3><i class="fas fa-spray-can"></i> Czyszczenie silnika</h3>
+        <p>Profesjonalne czyszczenie komory silnika, które poprawia wygląd i działanie silnika.</p>
+    </div>
+    <div class="offer-item">
+        <img src="{{ url_for('static', filename='images/klima.jpg') }}" alt="Usługa 7">
+        <h3><i class="fas fa-spray-can"></i> Odświeżanie klimatyzacji</h3>
+        <p>Czyszczenie i odgrzybianie systemu klimatyzacji, które zapewnia świeże i zdrowe powietrze wewnątrz pojazdu.</p>
+    </div>
+</div>
+{% endblock %}

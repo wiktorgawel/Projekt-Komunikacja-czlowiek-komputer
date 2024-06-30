@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Rejestracja{% endblock %}
+{% block content %}
+<h2 class="page-title">Rejestracja</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <label for="username">Nazwa użytkownika:</label>
+    {{ form.username }}
+
+    <label for="email">Email:</label>
+    {{ form.email }}
+
+    <label for="password">Hasło:</label>
+    {{ form.password }}
+
+    <label for="password2">Powtórz hasło:</label>
+    {{ form.password2 }}
+
+    {{ form.submit }}
+</form>
+{% endblock %}

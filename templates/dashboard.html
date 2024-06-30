@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Panel Klienta{% endblock %}
+{% block content %}
+<h2 class="page-title">Twoje Rezerwacje</h2>
+{% if reservations %}
+    <div class="reservations-container">
+    {% for reservation in reservations %}
+        <div class="reservation-item">
+            <p><strong>Usługa:</strong> {{ reservation.service.name }}</p>
+            <p><strong>Data:</strong> {{ reservation.start_time.strftime('%Y-%m-%d') }}</p>
+            <p><strong>Godzina:</strong> {{ reservation.start_time.strftime('%H:%M') }}</p>
+            <a href="{{ url_for('cancel_reservation', reservation_id=reservation.id) }}" class="btn btn-danger cancel-button">Anuluj</a>
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+    <p>Nie masz żadnych rezerwacji.</p>
+{% endif %}
+{% endblock %}

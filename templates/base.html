@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="header">
+        <div class="overlay">
+            <div class="nav">
+                <a href="{{ url_for('index') }}" class="nav-left">Strona Główna</a>
+                <a href="{{ url_for('reservation') }}" class="nav-right">Rezerwacje</a>
+                <a href="{{ url_for('oferta') }}" class="nav-right">Oferta</a>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('dashboard') }}" class="nav-right">Panel Klienta</a>
+                    <a href="{{ url_for('logout') }}" class="nav-right">Wyloguj się</a>
+                {% else %}
+                    <a href="{{ url_for('register') }}" class="nav-right">Zarejestruj się</a>
+                    <a href="{{ url_for('login') }}" class="nav-right">Zaloguj się</a>
+                {% endif %}
+            </div>
+            <div class="title">
+                <h1>Auto Detailing Rzeszów</h1>
+                <p>Odzyskaj blask auta!</p>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+    <footer>
+        <div class="footer-background">
+            <div class="footer-content">
+                <h2>KONTAKT</h2>
+                <p>Imię Nazwisko: Wiktor Gaweł</p>
+                <p>Email: auto.detailing@gmail.com</p>
+                <p>Telefon: +48 795 591 194</p>
+                <p>Adres: Ul. Marszałkowska 13, 36-001 Rzeszów</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

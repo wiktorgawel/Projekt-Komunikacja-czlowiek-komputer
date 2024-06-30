@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Rezerwacja{% endblock %}
+{% block content %}
+<h2 class="page-title">Dokonaj Rezerwacji</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <label for="name">Twoje Imię:</label>
+    {{ form.name }}
+
+    <label for="phone">Numer Telefonu:</label>
+    {{ form.phone }}
+    
+    <label for="service">Usługa:</label>
+    {{ form.service }}
+    
+    <label for="date">Data:</label>
+    {{ form.date }}
+    
+    <label for="time">Godzina:</label>
+    {{ form.time }}
+    
+    {{ form.submit }}
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dateInput = document.querySelector('input[type="date"]');
+        const timeInput = document.querySelector('select[name="time"]');
+
+        function validateDateTime() {
+            const selectedDate = new Date(dateInput.value);
+            const dayOfWeek = selectedDate.getUTCDay();
+
+            if (dayOfWeek === 0 || dayOfWeek === 6) {
+                dateInput.setCustomValidity('Rezerwacje można dokonywać tylko od poniedziałku do piątku.');
+            } else {
+                dateInput.setCustomValidity('');
+            }
+        }
+
+        dateInput.addEventListener('change', validateDateTime);
+    });
+</script>
+
+{% endblock %}
